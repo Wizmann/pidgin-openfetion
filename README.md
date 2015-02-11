@@ -8,9 +8,9 @@ Thanks to happyaron.
 
 ## Update
 
-The old version of pidgin-openfetion (including openfetion, cli-openfetion, etc.) doesn't work any more because the official fetion server update the protocol and openfetion will only get a "your fetion client is out of date" when you try to login. And the pidgin (or the other version of openfetion) will CRASHED!
+The old version of pidgin-openfetion (including openfetion, cli-openfetion, etc.) doesn't work any more because the official fetion server update the protocol and openfetion will only get a "your fetion client is out of date" when you try to login. And the pidgin (or the other version of openfetion) will be CRASHED!
 
-This repo update the login protocol for a little to fix the problem. I follow SmartFetion client, which is truely an old version but is still available at this time.
+This repo update the login protocol for a little by following SmartFetion protocol to fix the problems.
 
 ## Build & Install
 
