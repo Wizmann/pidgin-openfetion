@@ -73,21 +73,21 @@ extern "C" {
 
 #ifdef UNUSED
 #elif defined(__GNUC__)
-# 	define UNUSED(x) UNUSED_ ## x __attribute__((unused))
+#   define UNUSED(x) UNUSED_ ## x __attribute__((unused))
 #else
-#	define UNUSED(x) x
+#   define UNUSED(x) x
 #endif
 
-#define PROTO_VERSION "4.0.2510"
-#define LOGIN_TYPE_FETIONNO    			1
-#define LOGIN_TYPE_MOBILENO    			0
-#define BOUND_MOBILE_ENABLE    			1
-#define BOUND_MOBILE_DISABLE   			0
-#define BASIC_SERVICE_NORMAL   			1
-#define BASIC_SERVICE_ABNORMAL 			0
-#define CARRIER_STATUS_OFFLINE			-1
-#define CARRIER_STATUS_NORMAL  			0
-#define CARRIER_STATUS_DOWN    			1
+#define PROTO_VERSION "4.0.0"
+#define LOGIN_TYPE_FETIONNO             1
+#define LOGIN_TYPE_MOBILENO             0
+#define BOUND_MOBILE_ENABLE             1
+#define BOUND_MOBILE_DISABLE            0
+#define BASIC_SERVICE_NORMAL            1
+#define BASIC_SERVICE_ABNORMAL          0
+#define CARRIER_STATUS_OFFLINE          -1
+#define CARRIER_STATUS_NORMAL           0
+#define CARRIER_STATUS_DOWN             1
 #define CARRIER_STATUS_CLOSED           2 
 #define RELATION_STATUS_AUTHENTICATED   1
 #define RELATION_STATUS_UNAUTHENTICATED 0
@@ -98,7 +98,7 @@ extern "C" {
 #define DISPLAY_VERSION "1.1"
 
 #define FETION_NUDGE 0
-	
+    
 #define BUFLEN 4096
 
 #include "fx_types.h"

@@ -418,7 +418,7 @@ static gint sipc_reg_action(gpointer data, gint source, const gchar *UNUSED(erro
 
     fetion_sip_set_type(sip , SIP_REGISTER);
     SipHeader* cheader = fetion_sip_header_new("CN" , cnouce);
-    SipHeader* client = fetion_sip_header_new("CL" , "type=\"pc\" ,version=\""PROTO_VERSION"\"");
+    SipHeader* client = fetion_sip_header_new("CL" , "type=\"PCSmart\" ,version=\""PROTO_VERSION"\"");
     fetion_sip_add_header(sip , cheader);
     fetion_sip_add_header(sip , client);
     g_free(cnouce);
@@ -778,8 +778,8 @@ static gchar *generate_aes_key()
 }
 static gchar* generate_auth_body(User* user)
 {
-    gchar basexml[] = "<args></args>";
-    gchar state[5];
+    char basexml[] = "<args></args>";
+    char state[5];
     xmlChar* buf = NULL;
     xmlDocPtr doc = NULL;
     xmlNodePtr rootnode = NULL;
@@ -789,9 +789,9 @@ static gchar* generate_auth_body(User* user)
     doc = xmlParseMemory( basexml , strlen(basexml));
     rootnode = xmlDocGetRootElement(doc); 
     node = xmlNewChild(rootnode , NULL , BAD_CAST "device" , NULL);
-    xmlNewProp(node , BAD_CAST "machine-code" , BAD_CAST "001676C0E351");
+    xmlNewProp(node , BAD_CAST "machine-code" , BAD_CAST "305A1D03DB4FF88C53E5B316A107FFD6");
     node = xmlNewChild(rootnode , NULL , BAD_CAST "caps" , NULL);
-    xmlNewProp(node , BAD_CAST "value" , BAD_CAST "1ff");
+    xmlNewProp(node , BAD_CAST "value" , BAD_CAST "5ff");
     node = xmlNewChild(rootnode , NULL , BAD_CAST "events" , NULL);
     xmlNewProp(node , BAD_CAST "value" , BAD_CAST "7f");
     node = xmlNewChild(rootnode , NULL , BAD_CAST "user-info" , NULL);
@@ -809,7 +809,7 @@ static gchar* generate_auth_body(User* user)
     xmlNewProp(node , BAD_CAST "domains" , BAD_CAST "fetion.com.cn");
     node = xmlNewChild(rootnode , NULL , BAD_CAST "presence" , NULL);
     node1 = xmlNewChild(node , NULL , BAD_CAST "basic" , NULL);
-    snprintf(state, sizeof(state) - 1, "%d" , user->state);
+    sprintf(state , "%d" , user->state);
     xmlNewProp(node1 , BAD_CAST "value" , BAD_CAST state);
     xmlNewProp(node1 , BAD_CAST "desc" , BAD_CAST "");
     xmlDocDumpMemory(doc , &buf , NULL);
@@ -1200,7 +1200,7 @@ static gchar *generate_configuration_body(User *user)
     xmlChar* buf;
     xmlDocPtr doc;
     xmlNodePtr node , cnode;
-    gchar body[] = "<config></config>";
+    char body[] = "<config></config>";
     doc = xmlParseMemory(body , strlen(body));
     node = xmlDocGetRootElement(doc);
     cnode = xmlNewChild(node , NULL , BAD_CAST "user" , NULL);
@@ -1213,16 +1213,29 @@ static gchar *generate_configuration_body(User *user)
     cnode = xmlNewChild(node , NULL , BAD_CAST "client" , NULL);
     xmlNewProp(cnode , BAD_CAST "type" , BAD_CAST "PC");
     xmlNewProp(cnode , BAD_CAST "version" , BAD_CAST PROTO_VERSION);
-    xmlNewProp(cnode , BAD_CAST "platform" , BAD_CAST "W5.1");
+    xmlNewProp(cnode , BAD_CAST "platform" , BAD_CAST "W6.0");
+
     cnode = xmlNewChild(node , NULL , BAD_CAST "servers" , NULL);
-    xmlNewProp(cnode , BAD_CAST "version",
-                    BAD_CAST "0");//user->configServersVersion);
+    xmlNewProp(cnode , BAD_CAST "version", BAD_CAST "0");
+
+    cnode = xmlNewChild(node , NULL , BAD_CAST "service-no" , NULL);
+    xmlNewProp(cnode , BAD_CAST "version" , BAD_CAST "0");
+
     cnode = xmlNewChild(node , NULL , BAD_CAST "parameters" , NULL);
-    xmlNewProp(cnode , BAD_CAST "version",
-                    BAD_CAST "0");//user->configParametersVersion);
+    xmlNewProp(cnode , BAD_CAST "version", BAD_CAST "0");
+
     cnode = xmlNewChild(node , NULL , BAD_CAST "hints" , NULL);
-    xmlNewProp(cnode , BAD_CAST "version",
-                    BAD_CAST "0");//user->configHintsVersion);
+    xmlNewProp(cnode , BAD_CAST "version", BAD_CAST "0");
+
+    cnode = xmlNewChild(node , NULL , BAD_CAST "http-applications" , NULL);
+    xmlNewProp(cnode , BAD_CAST "version" , BAD_CAST "0");
+
+    cnode = xmlNewChild(node , NULL , BAD_CAST "client-config" , NULL);
+    xmlNewProp(cnode , BAD_CAST "version" , BAD_CAST "0");
+
+    cnode = xmlNewChild(node , NULL , BAD_CAST "services" , NULL);
+    xmlNewProp(cnode , BAD_CAST "version" , BAD_CAST "0");
+
     xmlDocDumpMemory(doc , &buf , NULL);
     xmlFreeDoc(doc);    
     return xml_convert(buf);
