@@ -4,7 +4,7 @@ a clone of the pidgin plugin of openfetion
 
 project home: https://code.google.com/p/ofetion/
 
-Thanks to happyaron.
+Thanks to happyaron and other guys who contributed to this project.
 
 ## Update
 
@@ -22,4 +22,8 @@ This repo update the login protocol for a little by following SmartFetion protoc
 
 ## Disclaimer
 
-There is no guarantee for the modification will actually work file. But for me, it does.
+There is no guarantee for the modification will actually work fine. But for me, it does.
+
+## The Story
+
+I used pidgin-openfetion to send messages to my girl friend. But now, no messages are sent to anyone anymore.
