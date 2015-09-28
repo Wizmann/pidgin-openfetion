@@ -26,4 +26,4 @@ There is no guarantee for the modification will actually work fine. But for me, 
 
 ## The Story
 
-I used pidgin-openfetion to send messages to my girl friend. But now, no messages are sent to anyone anymore.
+I used pidgin-openfetion to send messages to my ex gf. But now, no messages are sent to anyone anymore.
