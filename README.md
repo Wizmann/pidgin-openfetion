@@ -23,7 +23,3 @@ This repo update the login protocol for a little by following SmartFetion protoc
 ## Disclaimer
 
 There is no guarantee for the modification will actually work fine. But for me, it does.
-
-## The Story
-
-I used pidgin-openfetion to send messages to my ex gf. But now, no messages are sent to anyone anymore.
