@@ -17,7 +17,7 @@ This repo update the login protocol for a little by following SmartFetion protoc
 1. Clone this repo.
 2. Make a new dir `pidgin-openfetion/build`
 3. cmake .. && make
-4. move `libopenfetion.so` to `~/.purple/plgins`
+4. move `libopenfetion.so` to `~/.purple/plugins`
 5. try to login, prey, it will work
 
 ## Disclaimer
