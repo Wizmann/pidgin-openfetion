@@ -23,7 +23,3 @@ This repo update the login protocol for a little by following SmartFetion protoc
 ## Disclaimer
 
 There is no guarantee for the modification will actually work fine. But for me, it does.
-
-## Something more
-
-It was something once saving my life, literally.
